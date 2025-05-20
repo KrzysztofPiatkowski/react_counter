@@ -11,14 +11,7 @@ export class App extends React.Component<{}, State> {
   };
 
   addOne = () => {
-    this.setState(
-      prev => ({ count: prev.count + 1 }),
-      () => {
-        if (this.state.count % 5 === 0) {
-          this.add100();
-        }
-      },
-    );
+    this.setState(prev => ({ count: prev.count + 1 }));
   };
 
   add100 = () => {
@@ -41,7 +34,11 @@ export class App extends React.Component<{}, State> {
       <div className="App">
         <h1 className="App__title">{`Count: ${count}`}</h1>
 
-        <button type="button" className="App__add-one" onClick={this.addOne}>
+        <button
+          type="button"
+          className="App__add-one"
+          onClick={() => this.addOne()}
+        >
           Add 1
         </button>
 
